@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg4c7q71bxq7f"]
+
+[ext_resource type="Texture2D" uid="uid://b41nswwxnksqp" path="res://sprites/tile_0110.png" id="1_6fjbd"]
+[ext_resource type="Script" path="res://scripts/unit.gd" id="1_rvyef"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gyos6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idtrt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_joaup"]
+bg_color = Color(1, 0.301961, 0.501961, 1)
+
+[node name="unit" type="Node2D"]
+script = ExtResource("1_rvyef")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_6fjbd")
+
+[node name="Character" type="CharacterBody2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="Character"]
+shape = SubResource("RectangleShape2D_gyos6")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -8.0
+offset_top = 7.0
+offset_right = 8.0
+offset_bottom = 9.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_idtrt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_joaup")
+value = 100.0
+show_percentage = false
